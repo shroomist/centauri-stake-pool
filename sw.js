@@ -33,11 +33,11 @@ self.__precacheManifest = [
     "url": "framework-61416065c0fba8268899.js"
   },
   {
-    "url": "app-bdd7d3ca2b2e9bd336de.js"
+    "url": "app-fe7236b56bdd719a4b51.js"
   },
   {
     "url": "offline-plugin-app-shell-fallback/index.html",
-    "revision": "f3e11266b700255ed3dbd86e325260ca"
+    "revision": "d4b6f1fa372f0fd3bf2d96057fede037"
   },
   {
     "url": "component---cache-caches-gatsby-plugin-offline-app-shell-js-ad6431e4664bcf916d19.js"
@@ -52,7 +52,7 @@ self.__precacheManifest = [
   },
   {
     "url": "page-data/app-data.json",
-    "revision": "90a645b87c5176cbc5d8603dead167e9"
+    "revision": "52bf02f4efbe7574bd551f7002a379d1"
   },
   {
     "url": "polyfill-303683f6c6a5fb752dca.js"
@@ -147,7 +147,7 @@ const navigationRoute = new NavigationRoute(async ({ event }) => {
   // Check for resources + the app bundle
   // The latter may not exist if the SW is updating to a new version
   const resources = await idbKeyval.get(`resources:${pathname}`)
-  if (!resources || !(await caches.match(`/centauri-stake-pool/app-bdd7d3ca2b2e9bd336de.js`))) {
+  if (!resources || !(await caches.match(`/centauri-stake-pool/app-fe7236b56bdd719a4b51.js`))) {
     return await fetch(event.request)
   }
 
