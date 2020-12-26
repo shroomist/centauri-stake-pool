@@ -27,17 +27,17 @@ workbox.core.clientsClaim();
  */
 self.__precacheManifest = [
   {
-    "url": "webpack-runtime-ff296959d59bfdb059eb.js"
+    "url": "webpack-runtime-c4507468c3b3dd636957.js"
   },
   {
     "url": "framework-61416065c0fba8268899.js"
   },
   {
-    "url": "app-fe7236b56bdd719a4b51.js"
+    "url": "app-afd1046318e45c44ef99.js"
   },
   {
     "url": "offline-plugin-app-shell-fallback/index.html",
-    "revision": "5b6a426db9e365a1014e34755c9d7456"
+    "revision": "88b828568bf26df473f9eb1333854f73"
   },
   {
     "url": "component---cache-caches-gatsby-plugin-offline-app-shell-js-ad6431e4664bcf916d19.js"
@@ -52,7 +52,7 @@ self.__precacheManifest = [
   },
   {
     "url": "page-data/app-data.json",
-    "revision": "e50c3ee98e7a6610ad2ef731b3f083be"
+    "revision": "da417d1ab4cff6a5c0b602599988f602"
   },
   {
     "url": "polyfill-303683f6c6a5fb752dca.js"
@@ -142,12 +142,12 @@ const navigationRoute = new NavigationRoute(async ({ event }) => {
   lastNavigationRequest = event.request.url
 
   let { pathname } = new URL(event.request.url)
-  pathname = pathname.replace(new RegExp(`^/centauri-stake-pool`), ``)
+  pathname = pathname.replace(new RegExp(`^/candy-pool`), ``)
 
   // Check for resources + the app bundle
   // The latter may not exist if the SW is updating to a new version
   const resources = await idbKeyval.get(`resources:${pathname}`)
-  if (!resources || !(await caches.match(`/centauri-stake-pool/app-fe7236b56bdd719a4b51.js`))) {
+  if (!resources || !(await caches.match(`/candy-pool/app-afd1046318e45c44ef99.js`))) {
     return await fetch(event.request)
   }
 
@@ -160,7 +160,7 @@ const navigationRoute = new NavigationRoute(async ({ event }) => {
     }
   }
 
-  const offlineShell = `/centauri-stake-pool/offline-plugin-app-shell-fallback/index.html`
+  const offlineShell = `/candy-pool/offline-plugin-app-shell-fallback/index.html`
   const offlineShellWithKey = workbox.precaching.getCacheKeyForURL(offlineShell)
   return await caches.match(offlineShellWithKey)
 })
