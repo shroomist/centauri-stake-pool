@@ -27,17 +27,17 @@ workbox.core.clientsClaim();
  */
 self.__precacheManifest = [
   {
-    "url": "webpack-runtime-f6554831d140fc62e085.js"
+    "url": "webpack-runtime-7ee1618e40dfb35474c3.js"
   },
   {
     "url": "framework-6eeb8ad043160a79d5e7.js"
   },
   {
-    "url": "app-0a89f45726342cfb4f45.js"
+    "url": "app-b83d37fdfd82f24d8577.js"
   },
   {
     "url": "offline-plugin-app-shell-fallback/index.html",
-    "revision": "39ff155a2b7cbe261608bf2af861fb26"
+    "revision": "7aebb4eec89fe4849164cee58f53a9e4"
   },
   {
     "url": "component---cache-caches-gatsby-plugin-offline-app-shell-js-ad6431e4664bcf916d19.js"
@@ -52,7 +52,7 @@ self.__precacheManifest = [
   },
   {
     "url": "page-data/app-data.json",
-    "revision": "920676bdfa1fd80f9ffe890776539df3"
+    "revision": "7ac86a7fb5cf7e8d18aeddecc6431081"
   },
   {
     "url": "polyfill-30a761bdd526fe06de9d.js"
@@ -142,12 +142,12 @@ const navigationRoute = new NavigationRoute(async ({ event }) => {
   lastNavigationRequest = event.request.url
 
   let { pathname } = new URL(event.request.url)
-  pathname = pathname.replace(new RegExp(`^/candy-pool`), ``)
+  pathname = pathname.replace(new RegExp(`^/roast-pool`), ``)
 
   // Check for resources + the app bundle
   // The latter may not exist if the SW is updating to a new version
   const resources = await idbKeyval.get(`resources:${pathname}`)
-  if (!resources || !(await caches.match(`/candy-pool/app-0a89f45726342cfb4f45.js`))) {
+  if (!resources || !(await caches.match(`/roast-pool/app-b83d37fdfd82f24d8577.js`))) {
     return await fetch(event.request)
   }
 
@@ -160,7 +160,7 @@ const navigationRoute = new NavigationRoute(async ({ event }) => {
     }
   }
 
-  const offlineShell = `/candy-pool/offline-plugin-app-shell-fallback/index.html`
+  const offlineShell = `/roast-pool/offline-plugin-app-shell-fallback/index.html`
   const offlineShellWithKey = workbox.precaching.getCacheKeyForURL(offlineShell)
   return await caches.match(offlineShellWithKey)
 })
